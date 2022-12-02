@@ -1,0 +1,10 @@
+[package]
+name = "aoc2022"
+description = "Solutions for Advent of code 2022"
+version = "1.0.0"
+edition = "2021"
+authors = ["Neffarion"]
+
+[dependencies]
+phf = { version = "^0", features = ["macros"] }
+derive_more = { version = "^0" }
