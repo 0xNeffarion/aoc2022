@@ -12,7 +12,7 @@ pub fn solve() {
 }
 
 fn calories() -> Vec<u32> {
-    let input = include_str!("../../resources/day01.txt").trim().split("\n");
+    let input = include_str!("../../resources/day01.txt").trim().split('\n');
     let mut index = 0;
     let mut elfs: Vec<u32> = vec![];
     for line in input {
@@ -23,7 +23,7 @@ fn calories() -> Vec<u32> {
 
         let value = line.parse::<u32>().unwrap();
         if elfs.len() > index {
-            elfs[index] = elfs[index] + value;
+            elfs[index] += value;
         } else {
             elfs.push(value);
         }
