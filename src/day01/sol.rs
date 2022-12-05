@@ -1,6 +1,14 @@
 pub fn solve() {
     println!("Day 1");
-    part_one();
+    let mut calories = calories()
+        .into_iter()
+        .enumerate()
+        .collect::<Vec<(usize, u32)>>();
+
+    calories.sort_by(|(_, v1), (_, v2)| v1.cmp(v2));
+
+    part_one(&calories);
+    part_two(&calories);
 }
 
 fn calories() -> Vec<u32> {
@@ -24,19 +32,28 @@ fn calories() -> Vec<u32> {
     elfs
 }
 
-fn part_one() {
-    let elfs = calories();
-    let max = elfs
-        .iter()
-        .enumerate()
-        .max_by(|(_, v1), (_, v2)| v1.cmp(v2))
-        .unwrap();
-
-    println!("\nMax calories: {} | Elf: {}", *max.1, max.0)
+fn part_one(calories: &Vec<(usize, u32)>) {
+    let len = calories.len();
+    println!(
+        "Answer 1: Elf: {} | Calories: {}\n",
+        calories[len - 1].0,
+        calories[len - 1].1
+    )
 }
 
-fn part_two() {
-    //let elfs = calories();
+fn part_two(calories: &Vec<(usize, u32)>) {
+    let top_elves = 3;
+    let len = calories.len();
 
-    // TODO
+    println!("Answer 2: ");
+    println!("Top {} elves", top_elves);
+    let mut sum = 0;
+    for i in 0..top_elves {
+        let value = calories[len - i - 1].1;
+        let elf = calories[len - i - 1].0;
+        sum += value;
+        println!("Elf: {elf} | Value: {value}")
+    }
+
+    println!("Sum: {sum}")
 }
