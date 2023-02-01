@@ -46,7 +46,7 @@ fn part_two(calories: &Vec<(usize, u32)>) {
     let len = calories.len();
 
     println!("Answer 2: ");
-    println!("Top {} elves", top_elves);
+    println!("Top {top_elves} elves");
     let mut sum = 0;
     for i in 0..top_elves {
         let value = calories[len - i - 1].1;
